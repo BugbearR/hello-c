@@ -1,6 +1,18 @@
 CC=cc
 
-all: hello
+.PHONY: all
+all: build
+
+.PHONY: build
+build: hello
+
+.PHONY: clean
+clean:
+	rm ./hello
+
+.PHONY: run
+run: build
+	@./hello
 
 hello: hello.c
 	$(CC) -o $@ $^
